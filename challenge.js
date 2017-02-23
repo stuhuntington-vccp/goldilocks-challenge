@@ -1,8 +1,6 @@
 const fs = require('fs');
 const originalInput = fs.readFileSync('input.txt', 'utf8');
-const output = initChallenge(originalInput);
-
-fs.writeFileSync('output.txt', output.join('\n'), 'utf8');
+let output;
 
 function initChallenge(input) {
   let formattedInput = formatInput(input);
@@ -32,3 +30,6 @@ function calculatePossiblities(goldilocks, input) {
       }
     }).map((item) => item[2]);
 }
+
+output = initChallenge(originalInput);
+fs.writeFileSync('output.txt', output.join('\n'), 'utf8');
